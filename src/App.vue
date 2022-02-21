@@ -1,9 +1,15 @@
 <template>
-  <div id="app">Hello Vue.js</div>
+  <div class="wrapper">
+    <main-page />
+    <app-footer />
+  </div>
 </template>
 
 <script>
+import MainPage from "@/views/MainPage";
+import AppFooter from "@/components/AppFooter";
 export default {
   name: "App",
+  components: { MainPage, AppFooter },
 };
 </script>
