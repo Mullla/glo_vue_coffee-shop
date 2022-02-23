@@ -8,22 +8,24 @@
         flex-wrap
       "
     >
-      <li class="header__item" v-for="link in navLinks" :key="link.id">
-        <router-link :to="{ name: link.link }">
-          <img
-            v-if="link.icon"
-            :src="require(`@/assets/logo/${link.icon}`)"
-            alt="logo"
-          />
-          <span v-else>{{ link.text }}</span>
-        </router-link>
-      </li>
+      <nav-link
+        v-for="link in navLinks"
+        :key="link.id"
+        :link="link.link"
+        :iconUrl="link.icon"
+        className="header__item"
+        >{{ link.text ? link.text : "" }}</nav-link
+      >
     </ul>
   </header>
 </template>
 
 <script>
+import NavLink from "@/components/NavLink";
+
 export default {
+  components: { NavLink },
+
   data() {
     return {
       navLinks: [
