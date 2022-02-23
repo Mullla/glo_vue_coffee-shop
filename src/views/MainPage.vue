@@ -60,9 +60,14 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <product-card />
-              <product-card />
-              <product-card />
+              <product-card
+                v-for="coffee in goods"
+                :key="coffee.id"
+                :title="coffee.title"
+                :price="coffee.price"
+                :imgUrl="coffee.imgUrl"
+                className="best__item"
+              />
             </div>
           </div>
         </div>
@@ -86,24 +91,24 @@ export default {
       goods: [
         {
           id: 1,
-          imgUrl: '@/assets/img/coffee-1.jpg',
-          title: 'Solimo Coffee Beans 2kg',
-          price: '10.73$'
+          imgUrl: "coffee-1.jpg",
+          title: "Solimo Coffee Beans 2kg",
+          price: 10.73,
         },
         {
           id: 2,
-          imgUrl: '@/assets/img/coffee-2.jpg',
-          title: 'Presto Coffee Beans 1kg',
-          price: '15.99$'
+          imgUrl: "coffee-2.jpg",
+          title: "Presto Coffee Beans 1kg",
+          price: 15.99,
         },
         {
           id: 3,
-          imgUrl: '@/assets/img/coffee-3.jpg',
-          title: 'AROMISTICO Coffee 1kg',
-          price: '6.99$'
-        }
-      ]
-    }
-  }
+          imgUrl: "coffee-3.jpg",
+          title: "AROMISTICO Coffee 1kg",
+          price: 6.99,
+        },
+      ],
+    };
+  },
 };
 </script>
