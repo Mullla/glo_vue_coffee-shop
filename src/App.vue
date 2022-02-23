@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <main-page />
+    <router-view />
     <app-footer />
   </div>
 </template>

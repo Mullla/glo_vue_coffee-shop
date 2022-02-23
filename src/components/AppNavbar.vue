@@ -9,18 +9,18 @@
       "
     >
       <li class="header__item">
-        <a href="./index.html">
+        <router-link :to="{ name: 'MainPage' }">
           <img src="@/assets/logo/Logo.svg" alt="logo" />
-        </a>
+        </router-link>
       </li>
       <li class="header__item">
-        <a href="./coffeepage.html">Our coffee</a>
+        <router-link :to="{ name: 'OurCoffeePage' }">Our coffee</router-link>
       </li>
       <li class="header__item">
-        <a href="./goodspage.html">For your pleasure</a>
+        <router-link :to="{ name: 'GoodsPage' }">For your pleasure</router-link>
       </li>
       <li class="header__item">
-        <a href="./contacts.html">Contact us</a>
+        <router-link :to="{ name: 'ContactsPage' }">Contact us</router-link>
       </li>
     </ul>
   </header>
