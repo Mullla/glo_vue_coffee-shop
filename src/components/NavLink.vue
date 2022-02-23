@@ -1,12 +1,7 @@
 <template>
   <li :class="className">
     <router-link :to="{ name: link }">
-      <img
-        v-if="iconUrl"
-        :src="require(`@/assets/logo/${iconUrl}`)"
-        alt="logo"
-      />
-      {{ text }}
+      <slot></slot>{{ text }}
     </router-link>
   </li>
 </template>
@@ -17,10 +12,6 @@ export default {
     link: {
       type: String,
       required: true,
-    },
-    iconUrl: {
-      type: String,
-      default: null,
     },
     text: {
       type: String,

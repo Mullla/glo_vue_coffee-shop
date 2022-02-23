@@ -4,11 +4,15 @@
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <ul class="footer d-flex flex-wrap">
+            <nav-link :link="navLinks.header.link" className="footer__item"
+              ><img
+                :src="require(`@/assets/logo/${navLinks.header.icon}`)"
+                alt="logo"
+            /></nav-link>
             <nav-link
-              v-for="link in navLinks"
+              v-for="link in navLinks.other"
               :key="link.id"
               :link="link.link"
-              :iconUrl="link.icon"
               :text="link.text"
               className="footer__item"
             />
@@ -32,28 +36,30 @@ export default {
 
   data() {
     return {
-      navLinks: [
-        {
-          id: 1,
+      navLinks: {
+        header: {
+          id: 0,
           link: "MainPage",
           icon: "Logo_black.svg",
         },
-        {
-          id: 2,
-          text: "Our coffee",
-          link: "OurCoffeePage",
-        },
-        {
-          id: 3,
-          text: "For your pleasure",
-          link: "GoodsPage",
-        },
-        {
-          id: 4,
-          text: "Contact us",
-          link: "ContactsPage",
-        },
-      ],
+        other: [
+          {
+            id: 1,
+            text: "Our coffee",
+            link: "OurCoffeePage",
+          },
+          {
+            id: 2,
+            text: "For your pleasure",
+            link: "GoodsPage",
+          },
+          {
+            id: 3,
+            text: "Contact us",
+            link: "ContactsPage",
+          },
+        ],
+      },
     };
   },
 };

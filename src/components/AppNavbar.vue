@@ -8,11 +8,15 @@
         flex-wrap
       "
     >
+      <nav-link :link="navLinks.header.link" className="header__item"
+        ><img
+          :src="require(`@/assets/logo/${navLinks.header.icon}`)"
+          alt="logo"
+      /></nav-link>
       <nav-link
-        v-for="link in navLinks"
+        v-for="link in navLinks.other"
         :key="link.id"
         :link="link.link"
-        :iconUrl="link.icon"
         :text="link.text"
         className="header__item"
       />
@@ -28,28 +32,30 @@ export default {
 
   data() {
     return {
-      navLinks: [
-        {
-          id: 1,
+      navLinks: {
+        header: {
+          id: 0,
           link: "MainPage",
           icon: "Logo.svg",
         },
-        {
-          id: 2,
-          text: "Our coffee",
-          link: "OurCoffeePage",
-        },
-        {
-          id: 3,
-          text: "For your pleasure",
-          link: "GoodsPage",
-        },
-        {
-          id: 4,
-          text: "Contact us",
-          link: "ContactsPage",
-        },
-      ],
+        other: [
+          {
+            id: 1,
+            text: "Our coffee",
+            link: "OurCoffeePage",
+          },
+          {
+            id: 2,
+            text: "For your pleasure",
+            link: "GoodsPage",
+          },
+          {
+            id: 3,
+            text: "Contact us",
+            link: "ContactsPage",
+          },
+        ],
+      },
     };
   },
 };
