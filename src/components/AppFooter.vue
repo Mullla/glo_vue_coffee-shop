@@ -4,25 +4,15 @@
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <ul class="footer d-flex flex-wrap">
-            <li class="footer__item">
-              <router-link :to="{ name: 'MainPage' }">
-                <img src="@/assets/logo/Logo_black.svg" alt="logo" />
+            <li class="footer__item" v-for="link in navLinks" :key="link.id">
+              <router-link :to="{ name: link.link }">
+                <img
+                  v-if="link.icon"
+                  :src="require(`@/assets/logo/${link.icon}`)"
+                  alt="logo"
+                />
+                <span v-else>{{ link.text }}</span>
               </router-link>
-            </li>
-            <li class="footer__item">
-              <router-link :to="{ name: 'OurCoffeePage' }"
-                >Our coffee</router-link
-              >
-            </li>
-            <li class="footer__item">
-              <router-link :to="{ name: 'GoodsPage' }"
-                >For your pleasure</router-link
-              >
-            </li>
-            <li class="footer__item">
-              <router-link :to="{ name: 'ContactsPage' }"
-                >Contact us</router-link
-              >
             </li>
           </ul>
         </div>
@@ -35,3 +25,34 @@
     </div>
   </footer>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      navLinks: [
+        {
+          id: 1,
+          link: "MainPage",
+          icon: "Logo_black.svg",
+        },
+        {
+          id: 2,
+          text: "Our coffee",
+          link: "OurCoffeePage",
+        },
+        {
+          id: 3,
+          text: "For your pleasure",
+          link: "GoodsPage",
+        },
+        {
+          id: 4,
+          text: "Contact us",
+          link: "ContactsPage",
+        },
+      ],
+    };
+  },
+};
+</script>
