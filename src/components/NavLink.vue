@@ -6,7 +6,7 @@
         :src="require(`@/assets/logo/${iconUrl}`)"
         alt="logo"
       />
-      <slot></slot>
+      {{ text }}
     </router-link>
   </li>
 </template>
@@ -22,9 +22,13 @@ export default {
       type: String,
       default: null,
     },
-    className: {
+    text: {
       type: String,
       default: "",
+    },
+    className: {
+      type: String,
+      required: true,
     },
   },
 };

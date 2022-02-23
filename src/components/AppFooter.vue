@@ -9,9 +9,9 @@
               :key="link.id"
               :link="link.link"
               :iconUrl="link.icon"
+              :text="link.text"
               className="footer__item"
-              >{{ link.text ? link.text : "" }}</nav-link
-            >
+            />
           </ul>
         </div>
       </div>

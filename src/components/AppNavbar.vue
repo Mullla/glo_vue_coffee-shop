@@ -13,9 +13,9 @@
         :key="link.id"
         :link="link.link"
         :iconUrl="link.icon"
+        :text="link.text"
         className="header__item"
-        >{{ link.text ? link.text : "" }}</nav-link
-      >
+      />
     </ul>
   </header>
 </template>
