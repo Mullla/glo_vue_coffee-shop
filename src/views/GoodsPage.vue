@@ -14,7 +14,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 offset-2">
-            <img class="shop__girl" src="@/assets/img/coffee_goods.jpg" alt="girl" />
+            <img
+              class="shop__girl"
+              src="@/assets/img/coffee_goods.jpg"
+              alt="girl"
+            />
           </div>
           <div class="col-lg-4">
             <div class="title">About our beans</div>
@@ -65,7 +69,56 @@ import ProductCard from "@/components/ProductCard";
 export default {
   components: {
     AppNavbar,
-    ProductCard
+    ProductCard,
+  },
+
+  data() {
+    return {
+      goods: [
+        {
+          id: 1,
+          imgUrl: "@/assets/img/coffee-1.jpg",
+          title: "Solimo Coffee Beans 2kg",
+          price: "10.73$",
+          country: "Brazil",
+        },
+        {
+          id: 2,
+          imgUrl: "@/assets/img/coffee-2.jpg",
+          title: "Presto Coffee Beans 1kg",
+          price: "15.99$",
+          country: "Brazil",
+        },
+        {
+          id: 3,
+          imgUrl: "@/assets/img/coffee-3.jpg",
+          title: "AROMISTICO Coffee 1kg",
+          price: "6.99$",
+          country: "Brazil",
+        },
+        {
+          id: 4,
+          imgUrl: "@/assets/img/coffee-1.jpg",
+          title: "Solimo Coffee Beans 2kg",
+          price: "10.73$",
+          country: "Brazil",
+        },
+        {
+          id: 5,
+          imgUrl: "@/assets/img/coffee-1.jpg",
+          title: "Solimo Coffee Beans 2kg",
+          price: "10.73$",
+          country: "Brazil",
+        },
+        {
+          id: 6,
+          imgUrl: "@/assets/img/coffee-1.jpg",
+          title: "Solimo Coffee Beans 2kg",
+          price: "10.73$",
+          country: "Brazil",
+        },
+      ],
+    };
   },
 };
 </script>
