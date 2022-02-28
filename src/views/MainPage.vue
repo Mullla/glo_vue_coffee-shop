@@ -84,7 +84,7 @@
 <script>
 import AppNavbar from "@/components/AppNavbar";
 import ProductCard from "@/components/ProductCard";
-import { v4 as uuidv4 } from "uuid";
+import { mapState } from "vuex";
 import { scrollIntoView } from "seamless-scroll-polyfill";
 
 export default {
@@ -93,29 +93,10 @@ export default {
     ProductCard,
   },
 
-  data() {
-    return {
-      goods: [
-        {
-          id: uuidv4(),
-          imgUrl: "coffee-1.jpg",
-          title: "Solimo Coffee Beans 2kg",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          imgUrl: "coffee-2.jpg",
-          title: "Presto Coffee Beans 1kg",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          imgUrl: "coffee-3.jpg",
-          title: "AROMISTICO Coffee 1kg",
-          price: 6.99,
-        },
-      ],
-    };
+  computed: {
+    ...mapState({
+      goods: (state) => state.bestsellers,
+    }),
   },
 
   methods: {

@@ -6,7 +6,7 @@
           <ul class="footer d-flex flex-wrap">
             <nav-link :link="navLinks.header.link" className="footer__item"
               ><img
-                :src="require(`@/assets/logo/${navLinks.header.icon}`)"
+                :src="require(`@/assets/logo/${navLinks.footer.icon}`)"
                 alt="logo"
             /></nav-link>
             <nav-link
@@ -30,37 +30,15 @@
 
 <script>
 import NavLink from "@/components/NavLink";
+import { mapState } from "vuex";
 
 export default {
   components: { NavLink },
 
-  data() {
-    return {
-      navLinks: {
-        header: {
-          id: 0,
-          link: "MainPage",
-          icon: "Logo_black.svg",
-        },
-        other: [
-          {
-            id: 1,
-            text: "Our coffee",
-            link: "OurCoffeePage",
-          },
-          {
-            id: 2,
-            text: "For your pleasure",
-            link: "GoodsPage",
-          },
-          {
-            id: 3,
-            text: "Contact us",
-            link: "ContactsPage",
-          },
-        ],
-      },
-    };
+  computed: {
+    ...mapState({
+      navLinks: (state) => state.links,
+    }),
   },
 };
 </script>
