@@ -21,7 +21,7 @@
               alt="Beans logo"
             />
 
-            <form action="#" class="mt-5">
+            <form action="#" class="mt-5" @submit.prevent="onSubmit">
               <div class="form-group row">
                 <div class="col col-12 col-sm-3 d-flex align-items-center">
                   <label for="name-input" class="mb-0">
@@ -30,7 +30,7 @@
                   </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input type="text" class="form-control" id="name-input" />
+                  <input type="text" class="form-control" id="name-input" v-model.trim="name" />
                 </div>
               </div>
 
@@ -42,7 +42,7 @@
                   </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input type="email" class="form-control" id="email-input" />
+                  <input type="email" class="form-control" id="email-input" v-model.trim="email" />
                 </div>
               </div>
 
@@ -51,7 +51,7 @@
                   <label for="phone-input" class="mb-0"> Phone </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input type="tel" class="form-control" id="phone-input" />
+                  <input type="tel" class="form-control" id="phone-input" v-model.trim="phone" />
                 </div>
               </div>
 
@@ -69,6 +69,7 @@
                     id="message"
                     rows="5"
                     placeholder="Leave your comments here"
+                    v-model.trim="message"
                   ></textarea>
                 </div>
               </div>
@@ -91,5 +92,20 @@ import AppNavbar from "@/components/AppNavbar";
 
 export default {
   components: { AppNavbar },
+
+  data() {
+    return {
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    }
+  },
+
+  methods: {
+    onSubmit() {
+      console.log('name: ', this.name, ' email: ', this.email, ' phone: ', this.phone, ' message: ', this.message);
+    }
+  }
 };
 </script>
