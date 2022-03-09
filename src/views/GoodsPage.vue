@@ -66,6 +66,7 @@
 import AppNavbar from "@/components/AppNavbar";
 import ProductCard from "@/components/ProductCard";
 import { mapState } from "vuex";
+import { navigate } from "@/mixins/navigate";
 
 export default {
   components: {
@@ -73,14 +74,10 @@ export default {
     ProductCard,
   },
 
+  mixins: [navigate],
+
   computed: {
     ...mapState(["goods"]),
-  },
-
-  methods: {
-    navigate(id) {
-      this.$router.push({ name: "ItemPage", params: { id } });
-    },
   },
 };
 </script>
