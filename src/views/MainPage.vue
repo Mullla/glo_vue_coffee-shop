@@ -68,9 +68,7 @@
               <product-card
                 v-for="coffee in goods"
                 :key="coffee.id"
-                :title="coffee.title"
-                :price="coffee.price"
-                :imgUrl="coffee.imgUrl"
+                :coffee="coffee"
                 className="best__item"
               />
             </div>

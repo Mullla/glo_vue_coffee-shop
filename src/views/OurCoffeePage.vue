@@ -72,9 +72,8 @@
               <product-card
                 v-for="coffee in goods"
                 :key="coffee.id"
-                :title="coffee.title"
-                :price="coffee.price"
-                :imgUrl="coffee.imgUrl"
+                :coffee="coffee"
+                @onNavigate="navigate"
               />
             </div>
           </div>
@@ -97,6 +96,12 @@ export default {
 
   computed: {
     ...mapState(["goods"]),
+  },
+
+  methods: {
+    navigate(id) {
+      this.$router.push({ name: "ItemPage", params: { id } });
+    },
   },
 };
 </script>

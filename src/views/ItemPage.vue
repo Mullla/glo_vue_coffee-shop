@@ -7,7 +7,7 @@
             <app-navbar />
           </div>
         </div>
-        <h1 class="title-big">Our Coffee</h1>
+        <h1 class="title-big">{{ card.title }}</h1>
       </div>
     </div>
 
@@ -17,7 +17,7 @@
           <div class="col-lg-5 offset-1">
             <img
               class="shop__girl"
-              src="@/assets/img/coffee_item.jpg"
+              :src="require(`@/assets/img/${card.imgUrl}`)"
               alt="coffee_item"
             />
           </div>
@@ -29,8 +29,8 @@
               alt="Beans logo"
             />
             <div class="shop__point">
-              <span>Country:</span>
-              Brazil
+              <span>Country: </span>
+              {{ card.country }}
             </div>
             <div class="shop__point">
               <span>Description:</span>
@@ -40,8 +40,8 @@
               nisi ut aliquip ex ea commodo consequat.
             </div>
             <div class="shop__point">
-              <span>Price:</span>
-              <span class="shop__point-price">16.99$</span>
+              <span>Price: </span>
+              <span class="shop__point-price">{{ card.price }}$</span>
             </div>
           </div>
         </div>
@@ -55,5 +55,11 @@ import AppNavbar from "@/components/AppNavbar";
 
 export default {
   components: { AppNavbar },
+
+  computed: {
+    card() {
+      return this.$store.getters["getProductById"](this.$route.params.id);
+    },
+  },
 };
 </script>

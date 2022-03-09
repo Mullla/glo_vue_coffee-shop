@@ -45,6 +45,9 @@ const goods = {
       country: 'Brazil',
     },
   ],
+  getters: {
+    getProductById: state => id => state.find(item => item.id === id),
+  },
 };
 
 export default goods;

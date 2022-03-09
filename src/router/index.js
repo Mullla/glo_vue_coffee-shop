@@ -21,6 +21,12 @@ const router = new VueRouter({
         ),
     },
     {
+      path: '/goods/:id',
+      name: 'ItemPage',
+      component: () =>
+        import(/* webpackChunkName: "coffee-item" */ '@/views/ItemPage.vue'),
+    },
+    {
       path: '/goods',
       name: 'GoodsPage',
       component: () =>
