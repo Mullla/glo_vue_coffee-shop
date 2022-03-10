@@ -6,14 +6,7 @@ const coffee = {
   },
   getters: {
     getCoffeeById: state => id => state.coffee.find(item => item.id === +id),
-    getCoffee: state =>
-      state.coffee
-        .filter(item =>
-          item.name.toLowerCase().includes(state.searchValue.toLowerCase())
-        )
-        .filter(item =>
-          item.country.toLowerCase().includes(state.sortValue.toLowerCase())
-        ),
+    getCoffee: state => state.coffee,
   },
   actions: {
     setCoffeeData({ commit }, data) {

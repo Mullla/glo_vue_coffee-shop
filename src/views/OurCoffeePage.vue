@@ -52,7 +52,7 @@
                 type="text"
                 placeholder="start typing here..."
                 class="shop__search-input"
-                v-model.trim="searchValue"
+                @input="onSearch"
               />
             </form>
           </div>
@@ -96,6 +96,7 @@
 import AppNavbar from "@/components/AppNavbar";
 import ProductCard from "@/components/ProductCard";
 import { navigate } from "@/mixins/navigate";
+import { debounce } from "debounce";
 
 export default {
   components: {
@@ -134,12 +135,21 @@ export default {
   },
 
   methods: {
+    onSearch: debounce(function (event) {
+      this.onSort(event.target.value);
+    }, 500),
+    onSearch(e) {
+      this.onSort(e.target.value);
+    },
     onSort(value) {
-      this.$store.dispatch("setSortValue", value);
+      fetch(`http://localhost:3000/coffee?q=${value}`)
+        .then((resp) => resp.json())
+        .then((data) => {
+          this.$store.dispatch("setCoffeeData", data);
+        });
     },
     resetFilter() {
-      this.$store.dispatch("setSearchValue", "");
-      this.$store.dispatch("setSortValue", "");
+      this.onSort("");
     },
   },
 };
