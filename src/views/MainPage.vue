@@ -82,7 +82,6 @@
 <script>
 import AppNavbar from "@/components/AppNavbar";
 import ProductCard from "@/components/ProductCard";
-import { mapState } from "vuex";
 import { scrollIntoView } from "seamless-scroll-polyfill";
 
 export default {
@@ -92,9 +91,17 @@ export default {
   },
 
   computed: {
-    ...mapState({
-      goods: (state) => state.bestsellers,
-    }),
+    goods() {
+      return this.$store.state.bestsellers.bestsellers;
+    },
+  },
+
+  mounted() {
+    fetch("http://localhost:3000/bestsellers")
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.$store.dispatch("setBestsellersData", data);
+      });
   },
 
   methods: {

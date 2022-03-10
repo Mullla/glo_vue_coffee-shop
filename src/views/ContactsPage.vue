@@ -168,20 +168,26 @@ export default {
   },
 
   methods: {
-    async onSubmit() {
+    async onSubmit(e) {
       const isFormCorrect = await this.v$.$validate();
       if (!isFormCorrect) return;
 
-      console.log(
-        "name: ",
-        this.name,
-        " email: ",
-        this.email,
-        " phone: ",
-        this.phone,
-        " message: ",
-        this.message
-      );
+      const notice = {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        message: this.message,
+      };
+
+      fetch("http://localhost:3000/contacts", {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(notice)
+      });
+
+      e.target.reset()
     },
   },
 

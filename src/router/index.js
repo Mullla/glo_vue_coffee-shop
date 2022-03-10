@@ -21,8 +21,8 @@ const router = new VueRouter({
         ),
     },
     {
-      path: '/goods/:id',
-      name: 'ItemPage',
+      path: '/our-coffee/:id',
+      name: 'CoffeePage',
       component: () =>
         import(/* webpackChunkName: "coffee-item" */ '@/views/ItemPage.vue'),
     },
@@ -31,6 +31,12 @@ const router = new VueRouter({
       name: 'GoodsPage',
       component: () =>
         import(/* webpackChunkName: "goods" */ '@/views/GoodsPage.vue'),
+    },
+    {
+      path: '/goods/:id',
+      name: 'ProductPage',
+      component: () =>
+        import(/* webpackChunkName: "coffee-item" */ '@/views/ItemPage.vue'),
     },
     {
       path: '/contacts',

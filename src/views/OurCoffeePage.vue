@@ -86,7 +86,6 @@
 <script>
 import AppNavbar from "@/components/AppNavbar";
 import ProductCard from "@/components/ProductCard";
-import { mapState } from "vuex";
 import { navigate } from "@/mixins/navigate";
 
 export default {
@@ -97,8 +96,24 @@ export default {
 
   mixins: [navigate],
 
+  data() {
+    return {
+      name: "CoffeePage",
+    };
+  },
+
   computed: {
-    ...mapState(["goods"]),
+    goods() {
+      return this.$store.state.coffee.coffee;
+    },
+  },
+
+  mounted() {
+    fetch("http://localhost:3000/coffee")
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.$store.dispatch("setCoffeeData", data);
+      });
   },
 };
 </script>

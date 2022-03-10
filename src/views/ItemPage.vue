@@ -1,25 +1,26 @@
 <template>
   <main>
-    <div class="banner itempage-banner">
+    <div
+      class="banner"
+      :class="
+        pageName === 'CoffeePage' ? 'coffepage-banner' : 'goodspage-banner'
+      "
+    >
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
             <app-navbar />
           </div>
         </div>
-        <h1 class="title-big">{{ card.title }}</h1>
+        <h1 class="title-big" v-if="product">{{ product.name }}</h1>
       </div>
     </div>
 
-    <section class="shop">
+    <section class="shop" v-if="product">
       <div class="container">
         <div class="row">
           <div class="col-lg-5 offset-1">
-            <img
-              class="shop__girl"
-              :src="require(`@/assets/img/${card.imgUrl}`)"
-              alt="coffee_item"
-            />
+            <img class="shop__girl" :src="product.image" alt="coffee_item" />
           </div>
           <div class="col-lg-4">
             <div class="title">About it</div>
@@ -30,18 +31,15 @@
             />
             <div class="shop__point">
               <span>Country: </span>
-              {{ card.country }}
+              {{ product.country }}
             </div>
             <div class="shop__point">
               <span>Description:</span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              {{ product.description }}
             </div>
             <div class="shop__point">
               <span>Price: </span>
-              <span class="shop__point-price">{{ card.price }}$</span>
+              <span class="shop__point-price">{{ product.price }}</span>
             </div>
           </div>
         </div>
@@ -57,9 +55,24 @@ export default {
   components: { AppNavbar },
 
   computed: {
-    card() {
-      return this.$store.getters["getProductById"](this.$route.params.id);
+    pageName() {
+      return this.$route.name;
     },
+    product() {
+      return this.$store.state.item;
+    },
+  },
+
+  mounted() {
+    fetch(`http://localhost:3000/coffee/${this.$route.params.id}`)
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.$store.dispatch("setItem", data);
+      });
+  },
+
+  destroyed() {
+    this.$store.dispatch("setItem", null);
   },
 };
 </script>
