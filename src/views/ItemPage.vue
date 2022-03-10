@@ -29,11 +29,11 @@
               src="@/assets/logo/Beans_logo_dark.svg"
               alt="Beans logo"
             />
-            <div class="shop__point">
+            <div class="shop__point" v-if="product.country">
               <span>Country: </span>
               {{ product.country }}
             </div>
-            <div class="shop__point">
+            <div class="shop__point" v-if="product.description">
               <span>Description:</span>
               {{ product.description }}
             </div>
@@ -61,10 +61,13 @@ export default {
     product() {
       return this.$store.state.item;
     },
+    dbPage() {
+      return this.$route.name === 'CoffeePage' ? 'coffee' : 'goods'
+    }
   },
 
   mounted() {
-    fetch(`http://localhost:3000/coffee/${this.$route.params.id}`)
+    fetch(`http://localhost:3000/${this.dbPage}/${this.$route.params.id}`)
       .then((resp) => resp.json())
       .then((data) => {
         this.$store.dispatch("setItem", data);
