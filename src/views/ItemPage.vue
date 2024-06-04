@@ -9,7 +9,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <app-navbar />
+            <AppHeader />
           </div>
         </div>
         <h1 class="title-big" v-if="product">{{ product.name }}</h1>
@@ -49,10 +49,10 @@
 </template>
 
 <script>
-import AppNavbar from "@/components/AppNavbar";
+import AppHeader from "@/components/AppHeader.vue";
 
 export default {
-  components: { AppNavbar },
+  components: { AppHeader },
 
   computed: {
     pageName() {
