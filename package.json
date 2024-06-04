@@ -28,7 +28,6 @@
     "prettier": "^3.2.5",
     "sass": "^1.77.4",
     "vite": "^5.2.8",
-    "vite-plugin-simple-json-server": "^0.6.2",
     "vite-svg-loader": "^5.1.0"
   }
 }

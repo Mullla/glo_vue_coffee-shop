@@ -154,11 +154,6 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@howiefh/ant-path-matcher@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@howiefh/ant-path-matcher/-/ant-path-matcher-0.0.4.tgz#ddace506aa7f5bd2c81e54c03e74a63161b693ec"
-  integrity sha512-283cW09cKcrBy7TFMo4JgZoM+jBZIlqUMCtU7TDlZG+F+vgzpP3+/ZK0PrvZKluv02U906cqgufFn5fj6xJafA==
-
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.14.tgz#d78e481a039f7566ecc9660b4ea7fe6b1fec442b"
@@ -1248,11 +1243,6 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash.get@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
-  integrity sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==
-
 lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
@@ -1671,14 +1661,6 @@ uuid@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.1.tgz#e188d4c8853cc722220392c424cd637f32293f30"
   integrity sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==
-
-vite-plugin-simple-json-server@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/vite-plugin-simple-json-server/-/vite-plugin-simple-json-server-0.6.2.tgz#432ed6249500aff04ca3585327ce6c6a2d36d591"
-  integrity sha512-1jV5saCvgV90QYfLWzZ7fqwAF6vWUQR8D/mQYPzrUEX/lNH46JQ2vs24DVnOe/zBoeDEpSe8E2L5X+xQHFdJbg==
-  dependencies:
-    "@howiefh/ant-path-matcher" "^0.0.4"
-    lodash.get "^4.4.2"
 
 vite-svg-loader@^5.1.0:
   version "5.1.0"
