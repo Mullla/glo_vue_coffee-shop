@@ -25,8 +25,8 @@
           <div class="col-lg-4">
             <div class="title">About it</div>
             <img
+              :src="$options.logo"
               class="beanslogo"
-              src="@/assets/logo/Beans_logo_dark.svg"
               alt="Beans logo"
             />
             <div class="shop__point" v-if="product.country">
@@ -50,6 +50,7 @@
 
 <script>
 import AppHeader from "@/components/AppHeader.vue";
+import logo from '@/assets/logo/beans-dark.svg?url';
 
 export default {
   components: { AppHeader },
@@ -77,5 +78,7 @@ export default {
   unmounted() {
     this.$store.dispatch("setItem", null);
   },
+
+  logo
 };
 </script>
