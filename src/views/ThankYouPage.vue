@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <AppNavbar />
+            <AppHeader />
           </div>
         </div>
         <h1 class="title-big">Thank you</h1>
@@ -39,6 +39,6 @@
 </template>
 
 <script setup>
-import AppNavbar from "@/components/AppNavbar";
+import AppHeader from "@/components/AppHeader.vue";
 import logo from '@/assets/logo/beans-dark.svg?url';
 </script>
