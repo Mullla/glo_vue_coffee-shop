@@ -4,20 +4,21 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <app-navbar />
+            <AppNavbar />
           </div>
         </div>
         <h1 class="title-big">Thank you</h1>
       </div>
     </div>
-    <section class="contacts">
+
+    <section>
       <div class="container">
         <div class="row">
           <div class="col col-12 col-lg-6 offset-0 offset-lg-3">
             <div class="title mt-5">Tell us about your tastes</div>
             <img
+              :src="logo"
               class="beanslogo mt-5"
-              src="@/assets/logo/Beans_logo_dark.svg"
               alt="Beans logo"
             />
           </div>
@@ -25,7 +26,7 @@
 
         <div class="row">
           <div class="col">
-            <div class="title big__text mt-5">
+            <div class="title mt-5">
               <p>Thank you so much</p>
               <p>We contact you as soon as posible</p>
               <img src="@/assets/img/thanks.png" alt="thanks-icon" />
@@ -37,10 +38,7 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import AppNavbar from "@/components/AppNavbar";
-
-export default {
-  components: { AppNavbar },
-};
+import logo from '@/assets/logo/beans-dark.svg?url';
 </script>

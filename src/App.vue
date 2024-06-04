@@ -1,15 +1,10 @@
 <template>
   <div class="wrapper">
-    <router-view />
-    <app-footer />
+    <RouterView />
+    <AppFooter />
   </div>
 </template>
 
-<script>
-import MainPage from "@/views/MainPage";
-import AppFooter from "@/components/AppFooter";
-export default {
-  name: "App",
-  components: { MainPage, AppFooter },
-};
+<script setup>
+import AppFooter from "@/components/AppFooter.vue";
 </script>

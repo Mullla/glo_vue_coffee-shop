@@ -1,44 +1,62 @@
 <template>
-  <footer>
+  <footer :class="$style.root">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
-          <ul class="footer d-flex flex-wrap">
-            <nav-link :link="navLinks.header.link" className="footer__item"
-              ><img
-                :src="require(`@/assets/logo/${navLinks.footer.icon}`)"
-                alt="logo"
-            /></nav-link>
-            <nav-link
-              v-for="link in navLinks.other"
-              :key="link.id"
-              :link="link.link"
-              :text="link.text"
-              className="footer__item"
-            />
+          <ul :class="$style.nav" class="d-flex flex-wrap">
+            <NavLink :to="LINKS.header.link" :class="$style.link">
+              <img :src="navLogo" alt="go to main" />
+            </NavLink>
+
+            <NavLink v-for="{ id, link, text } in LINKS.other" :key="id" :to="link" :class="$style.link">
+              {{ text }}
+            </NavLink>
           </ul>
         </div>
       </div>
-      <img
-        class="beanslogo"
-        src="@/assets/logo/Beans_logo_dark.svg"
-        alt="Beans logo"
-      />
+
+      <img :src="bottomLogo" class="beanslogo"  alt="Beans logo" />
     </div>
   </footer>
 </template>
 
-<script>
-import NavLink from "@/components/NavLink";
-import { mapState } from "vuex";
-
-export default {
-  components: { NavLink },
-
-  computed: {
-    ...mapState({
-      navLinks: (state) => state.links,
-    }),
-  },
-};
+<script setup>
+import NavLink from '@/components/NavLink.vue';
+import { LINKS } from '@/utils/constants';
+import navLogo from '@/assets/logo/coffee-house-dark.svg?url';
+import bottomLogo from '@/assets/logo/beans-dark.svg?url';
 </script>
+
+<style module lang="scss">
+.root {
+  padding: 20px 0
+}
+
+.nav {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 30px;
+  list-style-type: none;
+}
+
+.link {
+  font-size: 12px;
+  padding: 10px 20px;
+  font-weight: normal;
+
+  a {
+    color: #000;
+
+    &:visited {
+      text-decoration: none;
+      color: #000;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+</style>

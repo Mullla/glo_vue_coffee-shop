@@ -1,26 +1,23 @@
 <template>
-  <li :class="className">
-    <router-link :to="{ name: link }">
-      <slot></slot>{{ text }}
-    </router-link>
-  </li>
+  <component :is="tag">
+    <RouterLink :to="{ name: to }">
+      <slot />
+    </RouterLink>
+  </component>
 </template>
 
-<script>
-export default {
-  props: {
-    link: {
-      type: String,
-      required: true,
-    },
-    text: {
-      type: String,
-      default: "",
-    },
-    className: {
-      type: String,
-      required: true,
-    },
+<script setup>
+import { RouterLink } from 'vue-router';
+
+defineProps({
+  tag: {
+    type: String,
+    default: 'li'
   },
-};
+
+  to: {
+    type: String,
+    default: ''
+  }
+});
 </script>
