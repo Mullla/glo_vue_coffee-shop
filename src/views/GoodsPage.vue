@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <AppNavbar />
+            <AppHeader />
           </div>
         </div>
         <h1 class="title-big">For your pleasure</h1>
@@ -24,7 +24,7 @@
             <div class="title">About our beans</div>
             <img
               class="beanslogo"
-              src="@/assets/logo/Beans_logo_dark.svg"
+              src="@/assets/logo/beans-dark.svg"
               alt="Beans logo"
             />
             <div class="shop__text">
@@ -63,13 +63,13 @@
 </template>
 
 <script>
-import AppNavbar from "@/components/AppNavbar";
-import ProductCard from "@/components/ProductCard";
+import AppHeader from "@/components/AppHeader.vue";
+import ProductCard from "@/components/ProductCard.vue";
 import { navigate } from "@/mixins/navigate";
 
 export default {
   components: {
-    AppNavbar,
+    AppHeader,
     ProductCard,
   },
 
