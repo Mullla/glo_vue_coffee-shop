@@ -8,11 +8,11 @@
         justify-content-md-start
         flex-wrap
       ">
-      <NavLink :to="navLinks.header.link" :class="$style.link">
-        <img :src="require(`@/assets/logo/${LINKS.header.icon}`)" alt="go to main" />
+      <NavLink :to="LINKS.header.link" :class="$style.link">
+        <img :src="logo" alt="go to main" />
       </NavLink>
 
-      <NavLink v-for="{ id, link, text } in LINKS.other" :key="id" :link="link" :text="text" :class="$style.link">
+      <NavLink v-for="{ id, link, text } in LINKS.other" :key="id" :to="link" :class="$style.link">
         {{ text }}
       </NavLink>
     </ul>
@@ -22,6 +22,7 @@
 <script setup>
 import NavLink from '@/components/NavLink.vue';
 import { LINKS } from '@/utils/constants';
+import logo from '@/assets/logo/coffee-house.svg?url';
 </script>
 
 <style module lang="scss">

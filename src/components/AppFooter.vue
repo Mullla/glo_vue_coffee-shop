@@ -5,7 +5,7 @@
         <div class="col-lg-6 offset-lg-3">
           <ul :class="$style.nav" class="d-flex flex-wrap">
             <NavLink :to="LINKS.header.link" :class="$style.link">
-              <img :src="require(`@/assets/logo/${LINKS.footer.icon}`)" alt="go to main" />
+              <img :src="navLogo" alt="go to main" />
             </NavLink>
 
             <NavLink v-for="{ id, link, text } in LINKS.other" :key="id" :to="link" :class="$style.link">
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <img class="beanslogo" src="@/assets/logo/beans-dark.svg" alt="Beans logo" />
+      <img :src="bottomLogo" class="beanslogo"  alt="Beans logo" />
     </div>
   </footer>
 </template>
@@ -23,6 +23,8 @@
 <script setup>
 import NavLink from '@/components/NavLink.vue';
 import { LINKS } from '@/utils/constants';
+import navLogo from '@/assets/logo/coffee-house-dark.svg?url';
+import bottomLogo from '@/assets/logo/beans-dark.svg?url';
 </script>
 
 <style module lang="scss">
