@@ -74,7 +74,7 @@ export default {
       });
   },
 
-  destroyed() {
+  unmounted() {
     this.$store.dispatch("setItem", null);
   },
 };

@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <app-navbar />
+            <AppNavbar />
           </div>
         </div>
         <h1 class="title-big">For your pleasure</h1>
@@ -48,7 +48,7 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
-              <product-card
+              <ProductCard
                 v-for="coffee in goods"
                 :key="coffee.id"
                 :coffee="coffee"
