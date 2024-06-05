@@ -60,7 +60,6 @@ const filters = [
 }
 
 .list {
-  list-style: none;
   display: flex;
 }
 

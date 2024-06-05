@@ -30,7 +30,6 @@ import logo from '@/assets/logo/coffee-house.svg';
   display: flex;
   align-items: flex-end;
   margin-top: 30px;
-  list-style-type: none;
 }
 
 .link {

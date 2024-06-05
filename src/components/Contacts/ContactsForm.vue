@@ -24,6 +24,7 @@ import { useVuelidate } from '@vuelidate/core';
 import { required, email, maxLength, helpers } from '@vuelidate/validators';
 import { minLength } from '@/validators/minLength';
 import { isChecked } from '@/validators/isChecked';
+import { sendContacts } from '@/api/api';
 
 const state = reactive({
   name: '',
@@ -56,13 +57,7 @@ const onSubmit = async (e) => {
   const isFormCorrect = await v$.value.$validate();
   if (!isFormCorrect) return;
 
-  // fetch("http://localhost:3000/contacts", {
-  //   method: 'POST',
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(state)
-  // });
+  await sendContacts(state);
 
   e.target.reset()
 };

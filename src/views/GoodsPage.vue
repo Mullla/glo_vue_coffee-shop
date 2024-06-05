@@ -12,17 +12,23 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import HeaderBanner from '@/components/HeaderBanner.vue';
 import AboutSection from '@/components/AboutSection.vue';
 import GoodsList from '@/components/Goods/GoodsList.vue';
+import { getItems } from '@/api/api';
+import { useGoodsStore } from '@/stores/goods';
 
-// mounted() {
-//   fetch("http://localhost:3000/goods")
-//     .then((resp) => resp.json())
-//     .then((data) => {
-//       this.$store.dispatch("setGoodsData", data);
-//     });
-// },
+const store = useGoodsStore();
+
+onMounted(async () => {
+  try {
+    const data = await getItems('goods');
+    store.setGoodsData(data);
+  } catch (error) {
+    console.log(error)
+  }
+});
 </script>
 
 <style module lang="scss">

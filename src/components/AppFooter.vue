@@ -37,7 +37,6 @@ import bottomLogo from '@/assets/logo/beans-dark.svg';
   align-items: flex-end;
   justify-content: center;
   margin-top: 30px;
-  list-style-type: none;
 }
 
 .link {

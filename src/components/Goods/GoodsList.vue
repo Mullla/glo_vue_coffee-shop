@@ -6,7 +6,7 @@
           v-for="coffee in store.goods"
           :key="coffee.id"
           :coffee="coffee"
-          @onNavigate="router.push({ name: ROUTES.PRODUCT, params: { id } })" />
+          @onNavigate="navigate(ROUTES.PRODUCT, coffee.id)" />
       </ul>
     </div>
   </div>
@@ -14,9 +14,12 @@
 
 <script setup>
 import ProductCard from '@/components/ProductCard.vue';
-import { useGoodsStore } from '@/stores/goods'
+import { useGoodsStore } from '@/stores/goods';
+import { useNavigate } from '@/hooks/useNavigate';
+import { ROUTES } from '@/utils/constants';
 
 const store = useGoodsStore();
+const { navigate } = useNavigate();
 </script>
 
 <style module lang="scss">

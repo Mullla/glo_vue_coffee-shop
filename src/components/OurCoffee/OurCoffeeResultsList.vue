@@ -26,6 +26,5 @@ const { navigate } = useNavigate();
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
 }
 </style>
