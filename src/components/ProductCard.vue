@@ -51,5 +51,9 @@ defineEmits(['onNavigate']);
   font-size: 14px;
   margin-top: 10px;
   text-align: right;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
 }
 </style>

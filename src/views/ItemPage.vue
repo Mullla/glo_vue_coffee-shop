@@ -1,84 +1,30 @@
 <template>
   <main>
-    <div
-      class="banner"
-      :class="
-        pageName === 'CoffeePage' ? 'coffepage-banner' : 'goodspage-banner'
-      "
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <AppHeader />
-          </div>
-        </div>
-        <h1 class="title-big" v-if="product">{{ product.name }}</h1>
-      </div>
-    </div>
-
-    <section class="shop" v-if="product">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5 offset-1">
-            <img class="shop__girl" :src="product.image" alt="coffee_item" />
-          </div>
-          <div class="col-lg-4">
-            <div class="title">About it</div>
-            <img
-              :src="$options.logo"
-              class="beanslogo"
-              alt="Beans logo"
-            />
-            <div class="shop__point" v-if="product.country">
-              <span>Country: </span>
-              {{ product.country }}
-            </div>
-            <div class="shop__point" v-if="product.description">
-              <span>Description:</span>
-              {{ product.description }}
-            </div>
-            <div class="shop__point">
-              <span>Price: </span>
-              <span class="shop__point-price">{{ product.price }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HeaderBanner :type="routeSlug" v-if="store.currentItem">{{ store.currentItem.name }}</HeaderBanner>
+    <ItemDescription v-if="store.currentItem" :product="store.currentItem" />
   </main>
 </template>
 
-<script>
-import AppHeader from "@/components/AppHeader.vue";
-import logo from '@/assets/logo/beans-dark.svg';
+<script setup>
+import { computed, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
+import HeaderBanner from '@/components/HeaderBanner.vue';
+import ItemDescription from '@/components/Item/ItemDescription.vue';
+import { useCurrentItemStore } from '@/stores/currentItem';
+import { ROUTES } from '@/utils/constants';
+import { getItemById } from '@/api/api';
 
-export default {
-  components: { AppHeader },
+const route = useRoute();
+const store = useCurrentItemStore();
 
-  computed: {
-    pageName() {
-      return this.$route.name;
-    },
-    product() {
-      return this.$store.state.item;
-    },
-    dbPage() {
-      return this.$route.name === 'CoffeePage' ? 'coffee' : 'goods'
-    }
-  },
+const routeSlug = computed(() => route.name === ROUTES.COFFEE ? 'coffee' : 'goods');
 
-  mounted() {
-    fetch(`http://localhost:3000/${this.dbPage}/${this.$route.params.id}`)
-      .then((resp) => resp.json())
-      .then((data) => {
-        this.$store.dispatch("setItem", data);
-      });
-  },
+onMounted(async () => {
+  const data = await getItemById(routeSlug.value, route.params.id);
+  store.setCurrentItem(data);
+});
 
-  unmounted() {
-    this.$store.dispatch("setItem", null);
-  },
-
-  logo
-};
+onUnmounted(() => {
+  store.setCurrentItem(null);
+});
 </script>

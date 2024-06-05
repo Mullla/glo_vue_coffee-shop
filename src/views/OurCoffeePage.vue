@@ -12,17 +12,24 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import HeaderBanner from '@/components/HeaderBanner.vue';
 import AboutSection from '@/components/AboutSection.vue';
 import OurCoffeeFilters from '@/components/OurCoffee/OurCoffeeFilters.vue';
+import { getItems } from '@/api/api';
+import { useCoffeeStore } from '@/stores/coffee';
 
-// mounted() {
-//   fetch("http://localhost:3000/coffee")
-//     .then((resp) => resp.json())
-//     .then((data) => {
-//       this.$store.dispatch("setCoffeeData", data);
-//     });
-// },
+const store = useCoffeeStore()
+
+onMounted(async () => {
+  try {
+    const data = await getItems('coffee');
+    store.setCoffeeData(data);
+  } catch (error) {
+    console.log(error);
+  }
+
+});
 </script>
 
 <style module lang="scss">
