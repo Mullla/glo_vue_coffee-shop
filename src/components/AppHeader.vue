@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import NavLink from '@/components/ui/NavLink.vue';
+import NavLink from '@/components/UI/NavLink.vue';
 import { LINKS } from '@/utils/constants';
 import logo from '@/assets/logo/coffee-house.svg';
 </script>

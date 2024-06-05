@@ -17,9 +17,9 @@
 
 <script setup>
 import { reactive } from 'vue';
-import BaseInput from '@/components/ui/BaseInput.vue';
-import BaseTextarea from '@/components/ui/BaseTextarea.vue';
-import BaseCheckbox from '@/components/ui/BaseCheckbox.vue';
+import BaseInput from '@/components/UI/BaseInput.vue';
+import BaseTextarea from '@/components/UI/BaseTextarea.vue';
+import BaseCheckbox from '@/components/UI/BaseCheckbox.vue';
 import { useVuelidate } from '@vuelidate/core';
 import { required, email, maxLength, helpers } from '@vuelidate/validators';
 import { minLength } from '@/validators/minLength';

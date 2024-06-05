@@ -1,25 +1,22 @@
 <template>
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
-      <div :class="$style.wrapper">
+      <ul :class="$style.wrapper">
         <ProductCard
-          v-for="coffee in store.coffee"
+          v-for="coffee in store.goods"
           :key="coffee.id"
           :coffee="coffee"
-          @onNavigate="router.push({ name: ROUTES.COFFEE, params: { id } })" />
-      </div>
+          @onNavigate="router.push({ name: ROUTES.PRODUCT, params: { id } })" />
+      </ul>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
 import ProductCard from '@/components/ProductCard.vue';
-import { useCoffeeStore } from '@/stores/coffee'
+import { useGoodsStore } from '@/stores/goods'
 
-const store = useCoffeeStore();
-
-const router = useRouter();
+const store = useGoodsStore();
 </script>
 
 <style module lang="scss">

@@ -1,10 +1,10 @@
 <template>
   <main>
-    <OurCoffeeBanner />
+    <HeaderBanner type="coffee">Our Coffee</HeaderBanner>
 
     <section :class="$style.wrapper">
       <div class="container">
-        <OurCoffeeAbout />
+        <AboutSection photo="coffee" />
         <OurCoffeeFilters />
       </div>
     </section>
@@ -12,8 +12,8 @@
 </template>
 
 <script setup>
-import OurCoffeeBanner from '@/components/OurCoffee/OurCoffeeBanner.vue';
-import OurCoffeeAbout from '@/components/OurCoffee/OurCoffeeAbout.vue';
+import HeaderBanner from '@/components/HeaderBanner.vue';
+import AboutSection from '@/components/AboutSection.vue';
 import OurCoffeeFilters from '@/components/OurCoffee/OurCoffeeFilters.vue';
 
 // mounted() {

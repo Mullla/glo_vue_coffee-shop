@@ -1,28 +1,3 @@
-.banner {
-    height: 260px;
-
-    .title-big {
-        margin-top: 60px;
-    }
-}
-
-.banner.coffepage-banner {
-    background: url('@/assets/img/coffee_bg.jpg') center center no-repeat;
-    background-size: cover;
-}
-.banner.goodspage-banner {
-    background: url('@/assets/img/goods_bg.jpg') center center no-repeat;
-    background-size: cover;
-}
-.banner.contactspage-banner {
-    background: url('@/assets/img/contacts_bg.jpg') center center no-repeat;
-    background-size: cover;
-}
-.banner.itempage-banner {
-    background: url('@/assets/img/coffee_bg.jpg') center center no-repeat;
-    background-size: cover;
-}
-
 .shop {
     &__point {
         margin-top: 16px;
@@ -38,31 +13,4 @@
             margin-top: 26px;
         }
     }
-}
-
-input {
-    border: 1px solid rgba(0, 0, 0, 0.49) !important;
-    box-shadow: 4px 4px 20px rgba(3, 2, 2, 0.25);
-    border-radius: 4px;
-    background: #fff;
-}
-
-.textarea label {
-    display: block;
-    text-align: center;
-}
-
-.textarea textarea {
-    resize: none;
-    border: 1px solid rgba(0, 0, 0, 0.49);
-    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-    background: #fff;
-}
-
-.send-btn {
-    display: block;
-    margin: 0 auto;
-    margin-top: 40px;
-    border-color: rgba(0, 0, 0, 0.49) !important;
 }

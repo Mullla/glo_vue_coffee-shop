@@ -1,15 +1,6 @@
 <template>
   <main>
-    <div class="banner contactspage-banner">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <AppHeader />
-          </div>
-        </div>
-        <h1 class="title-big">Thank you</h1>
-      </div>
-    </div>
+    <HeaderBanner type="contacts">Thank you!</HeaderBanner>
 
     <section>
       <div class="container">
@@ -39,6 +30,6 @@
 </template>
 
 <script setup>
-import AppHeader from "@/components/AppHeader.vue";
+import HeaderBanner from "@/components/HeaderBanner.vue";
 import logo from '@/assets/logo/beans-dark.svg';
 </script>

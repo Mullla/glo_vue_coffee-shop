@@ -1,6 +1,6 @@
 <template>
   <main>
-    <ContactsBanner />
+    <HeaderBanner type="contacts">Contact us</HeaderBanner>
 
     <section class="contacts">
       <div class="container">
@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import ContactsBanner from '@/components/Contacts/ContactsBanner.vue';
+import HeaderBanner from '@/components/HeaderBanner.vue';
 import ContactsForm from '@/components/Contacts/ContactsForm.vue';
 import logo from '@/assets/logo/beans-dark.svg';
 </script>

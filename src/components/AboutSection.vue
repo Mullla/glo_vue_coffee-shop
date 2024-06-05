@@ -1,7 +1,7 @@
 <template>
-  <div class="row">
+  <section :class="$style.root" class="row">
     <div class="col-lg-4 offset-2">
-      <img :class="$style.img" src="@/assets/img/coffee_girl.jpg" alt="girl" />
+      <img :class="$style.img" :src="aboutPhotosAssets[photo].imgUrl" :alt="aboutPhotosAssets[photo].imgAlt" />
     </div>
 
     <div class="col-lg-4">
@@ -21,16 +21,37 @@
         is song that held help face.
       </p>
     </div>
-  </div>
-
-  <div class="line"></div>
+  </section>
 </template>
 
 <script setup>
 import logo from '@/assets/logo/beans-dark.svg';
+import { aboutPhotosAssets } from '@/utils/assets';
+
+defineProps({
+  photo: {
+    type: String,
+    default: 'coffee',
+    validator(value) {
+      return ['coffee', 'goods'].includes(value)
+    }
+  }
+});
 </script>
 
 <style module lang="scss">
+.root {
+  &::after {
+    content: '';
+    width: 240px;
+    height: 1px;
+    background-color: #000000;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}
+
 .title {
   margin-top: 10px;
 }
