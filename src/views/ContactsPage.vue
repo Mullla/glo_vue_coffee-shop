@@ -24,5 +24,5 @@
 <script setup>
 import ContactsBanner from '@/components/Contacts/ContactsBanner.vue';
 import ContactsForm from '@/components/Contacts/ContactsForm.vue';
-import logo from '@/assets/logo/beans-dark.svg?url';
+import logo from '@/assets/logo/beans-dark.svg';
 </script>

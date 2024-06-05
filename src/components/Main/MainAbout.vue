@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import logo from '@/assets/logo/beans-dark.svg?url';
+import logo from '@/assets/logo/beans-dark.svg';
 </script>
 
 <style module lang="scss">

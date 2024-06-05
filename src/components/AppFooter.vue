@@ -23,8 +23,8 @@
 <script setup>
 import NavLink from '@/components/ui/NavLink.vue';
 import { LINKS } from '@/utils/constants';
-import navLogo from '@/assets/logo/coffee-house-dark.svg?url';
-import bottomLogo from '@/assets/logo/beans-dark.svg?url';
+import navLogo from '@/assets/logo/coffee-house-dark.svg';
+import bottomLogo from '@/assets/logo/beans-dark.svg';
 </script>
 
 <style module lang="scss">

@@ -25,7 +25,7 @@
 
 <script setup>
 import AppHeader from '@/components/AppHeader.vue';
-import beans from '@/assets/logo/beans.svg?url';
+import beans from '@/assets/logo/beans.svg';
 </script>
 
 <style module lang="scss">

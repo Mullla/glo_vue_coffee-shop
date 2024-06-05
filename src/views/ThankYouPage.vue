@@ -40,5 +40,5 @@
 
 <script setup>
 import AppHeader from "@/components/AppHeader.vue";
-import logo from '@/assets/logo/beans-dark.svg?url';
+import logo from '@/assets/logo/beans-dark.svg';
 </script>

@@ -22,7 +22,7 @@
 <script setup>
 import NavLink from '@/components/ui/NavLink.vue';
 import { LINKS } from '@/utils/constants';
-import logo from '@/assets/logo/coffee-house.svg?url';
+import logo from '@/assets/logo/coffee-house.svg';
 </script>
 
 <style module lang="scss">
